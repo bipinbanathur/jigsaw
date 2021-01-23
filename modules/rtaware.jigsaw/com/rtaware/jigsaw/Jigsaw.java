@@ -139,14 +139,15 @@ public class Jigsaw implements ActionListener {
 		}
 	}
 
-	public int getResults(int lhs, int rhs) {
+	public int getResultNative(int lhs, int rhs) {
 		try {
 
 			String nativeHome = "";
 			if (null != System.getenv("NATIVE_HOME")) {
 				nativeHome = System.getenv("NATIVE_HOME");
 			} else {
-				return -1;
+				javax.swing.JOptionPane.showMessageDialog(frame, "Please Set Env  NATIVE_HOME");
+				System.exit(0);
 			}
 
 			LibraryLookup lbLookUp = LibraryLookup.ofPath(Path.of(nativeHome + "/add.so"));
@@ -154,7 +155,8 @@ public class Jigsaw implements ActionListener {
 			FunctionDescriptor funcDesc = FunctionDescriptor.of(CLinker.C_INT, CLinker.C_INT, CLinker.C_INT);
 			MethodType methodType = MethodType.methodType(int.class, int.class, int.class);
 			MethodHandle methodHandler = CLinker.getInstance().downcallHandle(lbSymbol.address(), methodType, funcDesc);
-			return (int) methodHandler.invoke(lhs, rhs);
+			int result = (int) methodHandler.invoke(lhs, rhs);
+			return result;
 
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -327,7 +329,7 @@ public class Jigsaw implements ActionListener {
 		int result = 0;
 		switch (operation) {
 		case "Addition":
-			result = getResults(leftHand, rightHand);
+			result = getResultNative(leftHand, rightHand);
 			break;
 		case "Subtraction":
 			result = leftHand - rightHand;

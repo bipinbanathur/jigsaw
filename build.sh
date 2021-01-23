@@ -88,5 +88,6 @@ sudo hdiutil detach "/Volumes/${APP_NAME}"
 echo "-----------------------------------------------"
 echo "Open JPackaged Application"
 echo "-----------------------------------------------"
+export NATIVE_HOME="`pwd`/native"
 open ./"${APP_NAME}.app"
 
