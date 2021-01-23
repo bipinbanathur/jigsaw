@@ -161,7 +161,7 @@ public class Jigsaw implements ActionListener {
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
-		return -1;
+		return (lhs + rhs);
 	}
 
 	void SetLookAndFeel() {
