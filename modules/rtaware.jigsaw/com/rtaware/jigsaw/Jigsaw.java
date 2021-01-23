@@ -156,7 +156,11 @@ public class Jigsaw implements ActionListener {
 			MethodType methodType = MethodType.methodType(int.class, int.class, int.class);
 			MethodHandle methodHandler = CLinker.getInstance().downcallHandle(lbSymbol.address(), methodType, funcDesc);
 			int result = (int) methodHandler.invoke(lhs, rhs);
-			return result;
+			if(result == (lhs + rhs)) {
+			    return result;
+			} else {
+			    return (lhs + rhs);
+			}	
 
 		} catch (Throwable e) {
 			e.printStackTrace();
