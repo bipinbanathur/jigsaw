@@ -1,7 +1,7 @@
 # Maths Jigsaw Puzzle #
 A jigsaw puzzle app for macOS implemented in Java, tried to use some newer JDK features
 
- * Add jpeg files to ~/.jigsaw directory
+ * Add jpeg files to ~/.jigsaw/images directory
  * Select an arithmetic operation for solving the puzzle 
  * Select a jpeg image from File -> Open menu. 
  * This image will be cut into pieces and jumbled on the left pane
