@@ -1,5 +1,5 @@
 # Maths Jigsaw Puzzle #
-A jigsaw puzzle app for macOS implemented in Java, tried to use some newer JDK features
+A jigsaw puzzle app for macOS, implemented in Java, tried to use some newer JDK features
 
  * Add jpeg files to ~/.jigsaw/images directory
  * Select an arithmetic operation for solving the puzzle  (~/.jigsaw/conf/conf.properties)
